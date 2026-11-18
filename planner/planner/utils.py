@@ -4,6 +4,19 @@ from django.core.mail import EmailMultiAlternatives
 
 from django.conf import settings
 
+# ai integration imports
+from datetime import timedelta
+from typing import List, Literal
+
+from decouple import config
+from django.db import transaction
+from django.utils.html import strip_tags
+from google import genai
+from google.genai import types
+from pydantic import BaseModel, Field
+
+from projects.models import Task
+
 def send_mail(recipient,subject,template,context):
 
     mail = EmailMultiAlternatives(from_email=settings.EMAIL_HOST_USER,subject=subject,to={recipient})

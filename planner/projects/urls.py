@@ -15,4 +15,6 @@ urlpatterns = [
     path('tasks/',views.TaskListCreateView.as_view()),
 
     path('tasks/<str:uuid>/',views.TaskRetrieveUpdateDestroyView.as_view()),  
+
+    path('create-tasks-ai/<str:uuid>/',views.TaskCreateWithAI.as_view()),  
 ]
